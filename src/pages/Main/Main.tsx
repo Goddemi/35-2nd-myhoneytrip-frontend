@@ -14,7 +14,7 @@ import S from './Styled.Main';
 const PLACES = ['🏖 하와이', '🏝 발리', '☀️ 몰디브', '🌊 칸쿤'];
 const DEPARTURE_LOCATION = 'Seoul';
 
-const Main = () => {
+const Main: React.FC = () => {
   const navigate = useNavigate();
 
   const [patternChange, setPatternChange] = useState(false);
