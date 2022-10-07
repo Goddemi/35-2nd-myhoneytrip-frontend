@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
-import Main from './pages/Main/Main';
-import Nav from './components/Nav/Nav';
-import Footer from './components/Footer/Footer';
-import Login from './pages/Login/Login';
-import Reservation from './pages/Reservation/Reservation';
-import Purchase from './pages/Purchase/Purchase';
-import PassengerData from './pages/Purchase/PassengerData';
-import CheckReservation from './pages/CheckReservation/CheckReservation';
-import Kakao from './pages/Login/Kakao';
+
+import Nav from '../components/Nav/Nav';
+import Footer from '../components/Footer/Footer';
+
+import Main from '../features/Main/Main';
+import Login from '../features/Login/Login';
+import Reservation from '../features/Reservation/Reservation';
+import Purchase from '../features/Purchase/Purchase';
+import PassengerData from '../features/Purchase/PassengerData';
+import CheckReservation from '../features/CheckReservation/CheckReservation';
+import Kakao from '../features/Login/Kakao';
 
 const NavbarLayout = () => {
   return (

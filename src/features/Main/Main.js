@@ -9,12 +9,12 @@ import Carousel from './component/Carousel/Carousel';
 import RecentSearch from './component/RecentSearch/RecentSearch';
 import Recommend from './component/Recommend/Recommend';
 
-import S from './Styled.Main';
+import styled from 'styled-components';
 
 const PLACES = ['🏖 하와이', '🏝 발리', '☀️ 몰디브', '🌊 칸쿤'];
 const DEPARTURE_LOCATION = 'Seoul';
 
-const Main: React.FC = () => {
+const Main = () => {
   const navigate = useNavigate();
 
   const [patternChange, setPatternChange] = useState(false);
@@ -109,49 +109,49 @@ const Main: React.FC = () => {
   };
 
   return (
-    <S.Container>
-      <S.Header>
-        <S.NavSpace></S.NavSpace>
-        <S.HeaderContainer>
-          <S.SearchHeader>
+    <Container>
+      <Header>
+        <NavSpace></NavSpace>
+        <HeaderContainer>
+          <SearchHeader>
             <div>
-              <S.Round
+              <Round
                 changePattern={patternChange}
                 onClick={handlePatternChange}
               >
                 왕복
-              </S.Round>
-              <S.OneWay
+              </Round>
+              <OneWay
                 changePattern={patternChange}
                 onClick={handlePatternChange}
               >
                 편도
-              </S.OneWay>
+              </OneWay>
             </div>
-            <S.ReservationList>
+            <ReservationList>
               <span onClick={goToCheck}>항공권 예약내역 </span>
               <span>
                 <i className="fa-solid fa-circle-chevron-right"></i>
               </span>
-            </S.ReservationList>
-          </S.SearchHeader>
-          <S.SearchBar>
-            <S.ScheduleContainer>
-              <S.Schedule onClick={handleDestinationOpen}>
+            </ReservationList>
+          </SearchHeader>
+          <SearchBar>
+            <ScheduleContainer>
+              <Schedule onClick={handleDestinationOpen}>
                 <span>서울 (SEL) </span>
                 <i className="fa-solid fa-arrows-rotate"></i>
                 <span>{selectedValue}</span>
-              </S.Schedule>
+              </Schedule>
               <Destination
                 selectedValue={selectedValue}
                 open={destinationOpen}
                 onClose={handleDestinationClose}
                 PLACES={PLACES}
               />
-            </S.ScheduleContainer>
+            </ScheduleContainer>
 
-            <S.DateContainer>
-              <S.Date>
+            <DateContainer>
+              <Date>
                 <i className="fa-regular fa-calendar"> </i>
                 <Calendar
                   setDateRange={setDateRange}
@@ -161,11 +161,11 @@ const Main: React.FC = () => {
                   onewayDate={onewayDate}
                   setOnewayDate={setOnewayDate}
                 />
-              </S.Date>
-            </S.DateContainer>
+              </Date>
+            </DateContainer>
 
-            <S.PassengerContainer>
-              <S.Passenger onClick={handlePassengerOpen}>
+            <PassengerContainer>
+              <Passenger onClick={handlePassengerOpen}>
                 <div>
                   <i className="fa-solid fa-user-large"> </i>
                   <span>
@@ -173,7 +173,7 @@ const Main: React.FC = () => {
                   </span>
                 </div>
                 <i className="fa-solid fa-angle-down"></i>
-              </S.Passenger>
+              </Passenger>
               <Passenger
                 open={passengerOpen}
                 onClose={handlePassengerClose}
@@ -181,19 +181,152 @@ const Main: React.FC = () => {
                 passengerInfo={passengerInfo}
                 setPassengerInfo={setPassengerInfo}
               ></Passenger>
-            </S.PassengerContainer>
+            </PassengerContainer>
 
-            <S.SearchBtn onClick={dataFetch}>검색</S.SearchBtn>
-          </S.SearchBar>
-        </S.HeaderContainer>
-      </S.Header>
-      <S.BodyContainer>
+            <SearchBtn onClick={dataFetch}>검색</SearchBtn>
+          </SearchBar>
+        </HeaderContainer>
+      </Header>
+      <BodyContainer>
         {savedData ? <RecentSearch></RecentSearch> : ''}
         <Carousel />
         <Recommend></Recommend>
-      </S.BodyContainer>
-    </S.Container>
+      </BodyContainer>
+    </Container>
   );
 };
+
+const Container = styled.div``;
+
+const Header = styled.div`
+  position: relative;
+  max-width: 100%;
+  height: 275px;
+  margin: auto;
+  padding: 40px;
+  background: center/cover no-repeat url('/images/airplane.jpg');
+`;
+
+const NavSpace = styled.div`
+  height: 70px;
+`;
+
+const HeaderContainer = styled.div`
+  max-width: 1200px;
+  margin: auto;
+`;
+
+const SearchHeader = styled.div`
+  ${props => proptheme.variableflexSet('row', 'space-between')};
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+`;
+
+const Round = styled.span`
+  padding: 10px 15px;
+  margin: 20px 5px;
+  border-bottom: 3px solid
+    ${props => (propchangePattern ? 'transparent' : 'white')};
+  color: ${props => (propchangePattern ? '#DCDCDC' : 'white')};
+  cursor: pointer;
+`;
+
+const OneWay = styled(Round)`
+  margin-left: 5px;
+  border-bottom: 3px solid
+    ${props => (!propchangePattern ? 'transparent' : 'white')};
+  color: ${props => (!propchangePattern ? '#DCDCDC' : 'white')};
+`;
+
+const ReservationList = styled.div`
+  cursor: pointer;
+`;
+
+const SearchBar = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+  div {
+    margin-right: 3px;
+  }
+`;
+
+const ScheduleContainer = styled.div`
+  position: relative;
+`;
+
+const Schedule = styled.div`
+  ${props => proptheme.variableflexSet('row', 'space-between', 'center')};
+  width: 450px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 3px;
+  cursor: pointer;
+
+  i {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+`;
+
+const DateContainer = styled(ScheduleContainer)``;
+
+const Date = styled(Schedule)`
+  width: 330px;
+  justify-content: space-between;
+  padding: 14px;
+
+  i {
+    font-size: 20px;
+    transform: translate(20px, -2px);
+    z-index: 5;
+  }
+
+  span:nth-child(3) {
+    color: gray;
+    font-size: 20px;
+  }
+`;
+
+const DepartureDate = styled.span`
+  color: gray;
+`;
+
+const ArriveDate = styled.span`
+  display: ${props => (propchangePattern ? 'none' : 'block')};
+  color: gray;
+`;
+
+const PassengerContainer = styled.div`
+  position: relative;
+`;
+
+const Passenger = styled(Schedule)`
+  width: 320px;
+  justify-content: space-between;
+
+  div {
+    font-weight: bold;
+    transform: translateY(-1px);
+  }
+`;
+
+const SearchBtn = styled.button`
+  width: 80px;
+  color: white;
+  background-color: ${({ theme }) => theme.style.pink};
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+const BodyContainer = styled.div`
+  max-width: 1200px;
+  margin: auto;
+`;
 
 export default Main;
