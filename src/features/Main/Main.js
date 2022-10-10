@@ -165,7 +165,7 @@ const Main = () => {
             </DateContainer>
 
             <PassengerContainer>
-              <Passenger onClick={handlePassengerOpen}>
+              <PassengerArea onClick={handlePassengerOpen}>
                 <div>
                   <i className="fa-solid fa-user-large"> </i>
                   <span>
@@ -173,7 +173,7 @@ const Main = () => {
                   </span>
                 </div>
                 <i className="fa-solid fa-angle-down"></i>
-              </Passenger>
+              </PassengerArea>
               <Passenger
                 open={passengerOpen}
                 onClose={handlePassengerClose}
@@ -303,7 +303,7 @@ const PassengerContainer = styled.div`
   position: relative;
 `;
 
-const Passenger = styled(Schedule)`
+const PassengerArea = styled(Schedule)`
   width: 320px;
   justify-content: space-between;
 
