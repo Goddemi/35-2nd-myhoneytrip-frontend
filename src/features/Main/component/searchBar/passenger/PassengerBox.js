@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blue } from '@mui/material/colors';
 import styled from 'styled-components';
-import styles from './Passenger.module.css';
+import styles from './PassengerBox.module.css';
 
 const theme = createTheme({
   palette: {
@@ -17,7 +17,13 @@ const theme = createTheme({
   },
 });
 
-function Passenger({ open, onClose, count, passengerInfo, setPassengerInfo }) {
+function PassengerBox({
+  open,
+  onClose,
+  count,
+  passengerInfo,
+  setPassengerInfo,
+}) {
   return (
     <Dialog
       class={styles.passenger}
@@ -62,12 +68,12 @@ function Passenger({ open, onClose, count, passengerInfo, setPassengerInfo }) {
   );
 }
 
-Passenger.propTypes = {
+PassengerBox.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
 };
 
-export default Passenger;
+export default PassengerBox;
 
 function RowRadioButtonsGroup({ passengerInfo, setPassengerInfo }) {
   const SEATS = [

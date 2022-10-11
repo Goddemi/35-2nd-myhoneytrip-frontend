@@ -4,9 +4,14 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Dialog from '@mui/material/Dialog';
-import styles from './Destination.module.css';
+import styles from './DestinationBox.module.css';
 
-export default function Destination({ PLACES, onClose, selectedValue, open }) {
+export default function DestinationBox({
+  PLACES,
+  selectedValue,
+  open,
+  onClose,
+}) {
   const handleClose = () => {
     onClose(selectedValue);
   };
@@ -38,7 +43,7 @@ export default function Destination({ PLACES, onClose, selectedValue, open }) {
   );
 }
 
-Destination.propTypes = {
+DestinationBox.props.Types = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   selectedValue: PropTypes.string.isRequired,
