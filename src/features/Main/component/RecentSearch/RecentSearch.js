@@ -51,18 +51,6 @@ const RecentSearch = () => {
     );
   };
 
-  // const deleteStorage = e => {
-  //   const target = e.target.parentElement.parentElement;
-  //   recentData.forEach(element => {
-  //     console.log(element.innerText);
-  //   });
-  //   console.dir(target);
-  //   const recentDeleteData = recentData.filter(element => {
-  //     element;
-  //   });
-  //   localStorage.setItem('recentData', JSON.stringify(newSearchArray));
-  // };
-
   return (
     <RecentContainer>
       <RecentTitle>최근 검색한 항공권</RecentTitle>
