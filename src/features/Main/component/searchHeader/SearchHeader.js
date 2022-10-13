@@ -1,24 +1,35 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styled from 'styled-components';
+import { changePattern } from '../../../../store/store';
 
-const SearchHeader = ({ patternChange, setPatternChange }) => {
+const SearchHeader = () => {
+  let pattern = useSelector(state => state.pattern);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const goToCheck = () => {
     navigate('/checkreservation');
   };
 
-  const handlePatternChange = () => {
-    setPatternChange(!patternChange);
-  };
-
   return (
     <SearchHeaderBox>
-      <Round changePattern={patternChange} onClick={handlePatternChange}>
+      <Round
+        changePattern={pattern}
+        onClick={() => {
+          dispatch(changePattern(pattern));
+        }}
+      >
         왕복
       </Round>
-      <OneWay changePattern={patternChange} onClick={handlePatternChange}>
+      <OneWay
+        changePattern={pattern}
+        onClick={() => {
+          dispatch(changePattern(pattern));
+        }}
+      >
         편도
       </OneWay>
       <ReservationList>

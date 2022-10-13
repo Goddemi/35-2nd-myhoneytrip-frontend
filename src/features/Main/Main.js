@@ -9,8 +9,6 @@ import Recommend from './component/recommend/Recommend';
 import styled from 'styled-components';
 
 const Main = () => {
-  const [patternChange, setPatternChange] = useState(false);
-
   const savedData = JSON.parse(localStorage.getItem('recentData'));
   const [searchArray, setSearchArray] = useState(savedData ? savedData : []);
 
@@ -19,10 +17,7 @@ const Main = () => {
       <HeaderContainer>
         <NavSpace></NavSpace>
         <HeaderBox>
-          <SearchHeader
-            patternChange={patternChange}
-            setPatternChange={setPatternChange}
-          />
+          <SearchHeader />
           <SearchBar />
         </HeaderBox>
       </HeaderContainer>
