@@ -27,7 +27,7 @@ https://user-images.githubusercontent.com/99232122/184281715-92bcc9a4-fe11-4405-
 <http://2nd-myhoneytrip.s3-website.ap-northeast-2.amazonaws.com/>
 
 
-#### 나의 구현 사항. 
+#### 나의 구현 사항
 - 항공패턴, 날짜, 목적지, 인원, 유저 선택에 따른 state값 생성  
 - Get통신. 쿼리 파라미터를 통한 검색  
 - local storage를 활용한 최근 검색 내역
