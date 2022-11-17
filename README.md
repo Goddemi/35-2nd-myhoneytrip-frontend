@@ -19,14 +19,6 @@
 > Common : Git&Github, AWS 
 > Comunication : Notion, Slack, Trello, Github 
 
-### • 구현기능 및 사용 기술 소개 
-
-```
-구단희 : 로그인 페이지, 메인 배너 Carousel, Nav, Footer
-김익현 : 로딩 페이지, 항공편 예약 및 마이페이지(예약 확인 및 취소)
-신수정 : 검색 상품 리스트 페이지, 검색 결과 filtering
-이강철 : 메인 검색창 (캘린더 라이브러리), 최근 검색 항공편 배너 노출
-```
 
 ### • Site DEMO
 
@@ -34,37 +26,12 @@ https://user-images.githubusercontent.com/99232122/184281715-92bcc9a4-fe11-4405-
 
 <http://2nd-myhoneytrip.s3-website.ap-northeast-2.amazonaws.com/>
 
-#### 1. 카카오 로그인 API  
-- useEffect를 활용한 인가코드 발급을 서버로 전달 (FE 구단희)  
 
-#### 2. 메인 페이지. 
-- Slick library를 활용한 Carousel (FE 구단희). 
-- Search Bar 클릭 시 모달 및 달력 모달창 library 구현 (FE 이강철)  
-- 최근 검색 결과 상위 배너로 노출 (FE 이강철)  
-- mock data로 호출한 추천상품 노출 (FE 이강철)  
-
-####  3. 검색 상품 리스트 페이지
-- 데이터를 불러오기 전 로딩페이지 구현 (FE 김익현)   
-- useLocation을 활용해 querystring을 받아와 서버 데이터 요청 (FE 신수정)  
-- selectbox를 통한 filter 기능 구현 (feat. searchParams) (FE 신수정)  
-- useNavtigate안에 데이터를 담아 다음 페이지로 전달 (FE 신수정)  
-
-#### 4. 구매 상품 확인 페이지  
-- useLocation을 활용해 이전 페이지에서 보내준 데이터 시각화 (FE 김익현)  
-- useNavtigate안에 데이터를 담아 다음 페이지로 전달 (FE 김익현)  
-
-#### 5. 탑승객 및 예약자 정보 입력 페이지
-- 가상의 배열을 만들어 탑승객 수만큼 입력 페이지 생성 (FE 김익현)  
-- 서버로 전달하기 위한 데이터 가공 (FE 김익현)  
-
-#### 6. 마이 페이지 - 예약확인 및 예약취소 
-- 현재 탭에 따른 데이터 요청 예약취소 시 patch를 사용해 데이터 상태 변경 (FE 김익현)    
-
-#### 7. NAV 
-- 로그인/로그아웃 상태변경 및 마이페이지 이동 구현 (FE 구단희)  
- 
-#### 8. Footer
-- 상수데이터 활용하여 구성 (FE 구단희)  
+#### 나의 구현 사항. 
+- 항공패턴, 날짜, 목적지, 인원, 유저 선택에 따른 state값 생성  
+- Get통신. 쿼리 파라미터를 통한 검색  
+- local storage를 활용한 최근 검색 내역
+- mock data 추천 상품 mapping 및 각 엘리먼트 클릭 시 추천 정보에 맞는 검색 진행
 
 ### • 참고
 #####
